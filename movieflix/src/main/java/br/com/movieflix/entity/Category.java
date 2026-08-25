@@ -1,13 +1,15 @@
 package br.com.movieflix.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Entity
-@Table(name = "category")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "category")
 public class Category {
 
     @Id
@@ -15,5 +17,5 @@ public class Category {
     private Long id;
 
     @Column(length = 100, nullable = false)
-    private String nome;
+    private String name;
 }
