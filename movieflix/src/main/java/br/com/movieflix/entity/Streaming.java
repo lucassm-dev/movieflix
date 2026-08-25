@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@Getter
+@NoArgsConstructor
 @Setter
+@Getter
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "streaming")
+public class Streaming {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
