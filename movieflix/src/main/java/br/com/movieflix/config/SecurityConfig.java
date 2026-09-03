@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    //private final SecurityFilter securityFilter;
+    // private final SecurityFilter securityFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -31,17 +31,17 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/movieflix/auth/login").permitAll()
                         .anyRequest().authenticated()
                 )
-                //.addFilter()
+                // .addFilter()
                 .build();
     }
 
-//   @Bean
-//    public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-//        return authenticationConfiguration.getAuthenticationManager();
-//    }
-
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
     }
-}
+
+        @Bean
+        public PasswordEncoder passwordEncoder () {
+            return new BCryptPasswordEncoder();
+        }
+    }
